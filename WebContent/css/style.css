@@ -29,23 +29,24 @@ strong {
 	color: lightsteelblue;
 	z-index: 200;
 }
+
 a:link {
-    color: blue;
+	color: blue;
 }
 
 /* visited link */
 a:visited {
-    color: red;
+	color: red;
 }
 
 /* mouse over link */
 a:hover {
-    color: hotpink;
+	color: hotpink;
 }
 
 /* selected link */
 a:active {
-    color: blue;
+	color: blue;
 }
 
 #tooltip1 a:hover span {
@@ -105,13 +106,13 @@ h1,h2,h3,h4,h5,h6 {
 h1 {
 	font-size: 35px;
 	margin-bottom: 10px;
-	font-family:Arial Black;
+	font-family: Arial Black;
 }
 
 h2 {
 	font-size: 25px;
 	margin-bottom: 15px;
-	font-family:Verdana;
+	font-family: Verdana;
 }
 
 h3 {
@@ -177,16 +178,23 @@ ul li,ol li {
 	font-size: 12px;
 	line-height: 16px;
 	margin: 0 0 10px 15px;
-	
 }
 
 /*  tables
 	******************************/
-table,th,td {
-	border: 0.5px solid #BBBBBB;
+table.t1 tr{
+	border: 0px solid #BBBBBB;
+}
+table.t1 td{
+		border: 0px solid #BBBBBB;
+}
+
+table.t2,th,td {
+	border: 1px solid #BBBBBB;
 }
 
 th {
+	width: 100%;
 	padding: 3px;
 	font-weight: bold;
 	color: #3b413e;
@@ -244,7 +252,7 @@ hr {
 #header .top_banner {
 	background: url(../images/header.jpg) no-repeat left top;
 	height: 150px;
-	padding: 50px 35px 0 150px;
+	padding: 50px 35px 0 70px;
 	border: #a4a5a5 solid 1px;
 }
 
@@ -287,7 +295,7 @@ hr {
 	display: inline;
 	font-size: 16px;
 	list-style-type: none;
-	 font-family:Impact;
+	font-family: Impact;
 }
 
 .navigation ul li a {

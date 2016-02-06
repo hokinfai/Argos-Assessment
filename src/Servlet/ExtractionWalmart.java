@@ -52,8 +52,8 @@ public class ExtractionWalmart {
 					.getTextContent();
 			double sale = Double.parseDouble(element) * 0.69 + 20;
 			price = df2.format(sale);
-			System.out.println(sale);
-			System.out.println("hahaha" + price);
+//			System.out.println(sale);
+//			System.out.println("hahaha" + price);
 		}
 		reader.close();
 	}

@@ -24,7 +24,15 @@
 	<div id="wrapper">
 		<div id="header">
 			<div class="top_banner">
-				<h1>Argos's Top 10 Hottest Products</h1>
+				<table class = "t1">
+					<tr>
+						<td><img src="./images/Argos.png" alt="Argos" height="100"
+							width="100"></td>
+						<td style="text-align: left; vertical-align: top; padding: 0">
+							<h1>Argos's Top 10 Hottest Products</h1>
+						</td>
+					</tr>
+				</table>
 
 			</div>
 		</div>
@@ -75,7 +83,7 @@
 				<div class="common_content">
 					<h2>Products</h2>
 					<h3>Top 3 and 4 hottest Argos products</h3>
-					<table border="1" style="width: 100" cellpadding="5">
+					<table class="t2" style="width: 100" cellpadding="5">
 						<tr>
 
 							<td align="center" valign="center" style="width: 50%"><p

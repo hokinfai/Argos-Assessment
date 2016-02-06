@@ -55,7 +55,7 @@ public class Extraction extends PrintURL {
 					"\u00a3");
 			name = name.replace("&amp;", "");
 			name = name.replace("#xae;", "");
-			System.out.println(name);
+//			System.out.println(name);
 
 			ExtractionWalmart wal = new ExtractionWalmart(name);
 			wal.extract();
