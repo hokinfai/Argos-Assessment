@@ -6,6 +6,8 @@ import java.io.StringReader;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,8 +27,13 @@ public class ExtractionWalmart {
 	String pUrl;
 
 	public ExtractionWalmart(String name) {
-		this.name = name;
+		int index = name.indexOf("\u00A3");
+		this.name = name.substring(0, index - 1);
+		if (name.contains("Half Price.")) {
+			this.name = name.substring(0, 22);
 
+			System.out.println(name);
+		}
 	}
 
 	public void extract() throws Exception {
@@ -34,7 +41,7 @@ public class ExtractionWalmart {
 		url = "http://api.walmartlabs.com/v1/search?&format=xml&apiKey=9ng2w467x4t3dbe34gzja27d&numItems=1&query="
 				+ URLEncoder.encode(name, "UTF-8");
 		URL passUrl = new URL(url);
-		// System.out.println("hahahahahhahahhaha: " + url);
+		System.out.println("hahahahahhahahhaha: " + url);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				passUrl.openStream(), charset));
 		while ((inputLine = reader.readLine()) != null) {
@@ -52,8 +59,8 @@ public class ExtractionWalmart {
 					.getTextContent();
 			double sale = Double.parseDouble(element) * 0.69 + 20;
 			price = df2.format(sale);
-//			System.out.println(sale);
-//			System.out.println("hahaha" + price);
+			// System.out.println(sale);
+			// System.out.println("hahaha" + price);
 		}
 		reader.close();
 	}
