@@ -30,6 +30,7 @@ public class Extraction extends PrintURL {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				passUrl.openStream(), charset));
 		while ((inputLine = reader.readLine()) != null) {
+			
 			inputLine = inputLine.replace("<api_response><deals>", "");
 			inputLine = inputLine.replace("</api_response>", "");
 			inputLine = inputLine.replace("</deals>", "");
@@ -41,7 +42,7 @@ public class Extraction extends PrintURL {
 		String jsonPrettyPrintString = xmlJSONObj
 				.toString(PRETTY_PRINT_INDENT_FACTOR);
 		jsonFormat.append(jsonPrettyPrintString);
-
+//		System.out.println(jsonPrettyPrintString);
 	}
 
 	public void element() throws Exception {
@@ -51,6 +52,7 @@ public class Extraction extends PrintURL {
 		int n = geodata.length();
 		for (int i = 0; i < n; ++i) {
 			final JSONObject argos = geodata.getJSONObject(i);
+			// System.out.println(argos);
 			String name = argos.getString("title").replaceAll("&#xa3;",
 					"\u00a3");
 			name = name.replace("&amp;", "");

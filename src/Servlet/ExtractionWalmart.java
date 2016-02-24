@@ -25,12 +25,13 @@ public class ExtractionWalmart {
 	public static int PRETTY_PRINT_INDENT_FACTOR = 4;
 	String price;
 	String pUrl;
+	String element;
 
 	public ExtractionWalmart(String name) {
 		int index = name.indexOf("\u00A3");
 		this.name = name.substring(0, index - 1);
 		if (name.contains("Half Price.")) {
-			this.name = name.substring(0, 22);
+			this.name = name.substring(0, name.length()/2);
 
 			System.out.println(name);
 		}
@@ -53,12 +54,19 @@ public class ExtractionWalmart {
 			src.setCharacterStream(new StringReader(inputLine));
 
 			Document doc = builder.parse(src);
-			String element = doc.getElementsByTagName("salePrice").item(0)
-					.getTextContent();
+			System.out.println(inputLine);
+			//All the items contains "salePrice" this element;
+			if (inputLine.contains("salePrice")) {
+				element = doc.getElementsByTagName("salePrice").item(0)
+						.getTextContent();
+				double sale = Double.parseDouble(element) * 0.69 + 20;
+				price = df2.format(sale);
+			}else {
+				element = "null"; 
+			}
 			pUrl = doc.getElementsByTagName("productUrl").item(0)
 					.getTextContent();
-			double sale = Double.parseDouble(element) * 0.69 + 20;
-			price = df2.format(sale);
+			
 			// System.out.println(sale);
 			// System.out.println("hahaha" + price);
 		}
